@@ -1,16 +1,16 @@
 import { expect, Locator } from "@playwright/test";
-import { IGV_Navbar_Left } from "./IGV_Navbar_Left";
-import { IGV_Navbar_Right } from "./IGV_Navbar_Right";
+import { Left } from "./left/Left";
+import { Right } from "./right/Right";
 
 export class IGV_Navbar {
     private readonly container: Locator;
-    public readonly left: IGV_Navbar_Left;
-    public readonly right: IGV_Navbar_Right;
+    public readonly left: Left;
+    public readonly right: Right;
 
     constructor(parent: Locator) {
         this.container = parent.locator('.igv-navbar');
-        this.left = new IGV_Navbar_Left(this.container);
-        this.right = new IGV_Navbar_Right(this.container);
+        this.left = new Left(this.container);
+        this.right = new Right(this.container);
     }
 
     async assertVisible() {

@@ -1,7 +1,6 @@
 import { Locator, expect } from "@playwright/test";
 
-
-export class IGV_Navbar_CurrentGenome {
+export class CurrentGenome {
     private readonly element: Locator;
 
     constructor(parent: Locator) {

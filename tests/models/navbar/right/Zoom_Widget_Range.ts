@@ -1,7 +1,6 @@
 import { Locator, expect } from "@playwright/test";
 
-
-export class IGV_Navbar_Zoom_Widget_Range {
+export class Zoom_Widget_Range {
     private readonly range: Locator;
 
     constructor(parent: Locator) {
@@ -12,22 +11,22 @@ export class IGV_Navbar_Zoom_Widget_Range {
         await expect(this.range).toBeVisible();
     }
 
-    async GetCurrentLevel() :Promise<number> {
+    async GetCurrentLevel(): Promise<number> {
         const value = await this.range.inputValue();
         return parseInt(value);
     }
 
-    async GetLowerBound() :Promise<number> {
+    async GetLowerBound(): Promise<number> {
         const min = await this.range.getAttribute('min');
-        if(min == null) {
+        if (min == null) {
             throw new Error("min attribute not found");
         }
         return parseInt(min);
     }
 
-    async GetUpperBound() :Promise<number> {
+    async GetUpperBound(): Promise<number> {
         const max = await this.range.getAttribute('max');
-        if(max == null) {
+        if (max == null) {
             throw new Error("max attribute not found");
         }
         return parseInt(max);

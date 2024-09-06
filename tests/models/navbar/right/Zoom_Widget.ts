@@ -1,10 +1,9 @@
 import { Locator, expect } from "@playwright/test";
-import { IGV_Navbar_Zoom_Widget_Range } from "./IGV_Navbar_Zoom_Widget_Range";
+import { Zoom_Widget_Range } from "./Zoom_Widget_Range";
 
-
-export class IGV_Navbar_Zoom_Widget {
+export class Zoom_Widget {
     private readonly container: Locator;
-    public readonly range: IGV_Navbar_Zoom_Widget_Range;
+    public readonly range: Zoom_Widget_Range;
     private readonly zoomIn: Locator;
     private readonly zoomOut: Locator;
 
@@ -12,20 +11,18 @@ export class IGV_Navbar_Zoom_Widget {
         this.container = parent.locator('.igv-zoom-widget');
         this.zoomIn = this.container.locator('.igv-zoom-in-button');
         this.zoomOut = this.container.locator('.igv-zoom-out-button');
-        this.range = new IGV_Navbar_Zoom_Widget_Range(this.container);
+        this.range = new Zoom_Widget_Range(this.container);
     }
 
-    public async clickZoomIn() : Promise<void> {
+    public async clickZoomIn(): Promise<void> {
         await this.zoomIn.click();
     }
-    
-    public async clickZoomOut() : Promise<void> {
+
+    public async clickZoomOut(): Promise<void> {
         await this.zoomOut.click();
     }
-    
+
     async assertVisible() {
         await expect(this.container).toBeVisible();
     }
 }
-
-

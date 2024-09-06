@@ -24,3 +24,16 @@ test('has correct genomic location', async ({ page }) => {
     await igv.navbar.left.genomic_location.chromosome_select.assertSelectVisible();
     await igv.navbar.left.genomic_location.chromosome_select.assertSelectedOption("chr8");
 });
+
+
+test('has correct locus search text', async ({ page }) => {
+    await igv.navbar.left.genomic_location.assertVisible();
+    await igv.navbar.left.genomic_location.locus_size_group.assertVisible();
+    await igv.navbar.left.genomic_location.locus_size_group.assertSearchText("chr8:128,746,679-128,756,197");
+});
+
+test('has correct window size', async ({ page }) => {
+    await igv.navbar.left.genomic_location.assertVisible();
+    await igv.navbar.left.genomic_location.locus_size_group.assertVisible();
+    await igv.navbar.left.genomic_location.locus_size_group.assertWindowSizeText("9,519 bp");
+});

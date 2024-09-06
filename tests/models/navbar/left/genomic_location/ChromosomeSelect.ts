@@ -1,12 +1,12 @@
 import { Locator, expect } from "@playwright/test";
 
-export class IGV_Navbar_GenomicLocation_ChromosomeSelect {
+export class ChromosomeSelect {
     private readonly select: Locator;
     private readonly container: Locator;
 
     constructor(parent: Locator) {
         this.container = parent.locator(".igv-chromosome-select-widget-container");
-        this.select = this.container.getByRole('combobox')
+        this.select = this.container.getByRole('combobox');
     }
 
     public async assertContainerVisible(): Promise<void> {
@@ -18,9 +18,6 @@ export class IGV_Navbar_GenomicLocation_ChromosomeSelect {
     }
 
     public async assertSelectedOption(expected: string) {
-
-        await this.select.waitFor({ state: 'attached' });
-
         await expect.poll(async () => {
             return await this.select.locator('option:checked').innerText();
         }, {
