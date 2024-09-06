@@ -13,7 +13,7 @@ const ZoomWidget = function (browser, parent) {
     parent.appendChild(this.zoomContainer)
 
     // zoom out
-    this.zoomOutButton = DOMUtils.div()
+    this.zoomOutButton = DOMUtils.div({class: 'igv-zoom-out-button'})
     this.zoomContainer.appendChild(this.zoomOutButton)
     this.zoomOutButton.appendChild(createIcon('minus-circle'))
     this.zoomOutButton.addEventListener('click', () => {
@@ -22,7 +22,7 @@ const ZoomWidget = function (browser, parent) {
     })
 
     // Range slider
-    const el = DOMUtils.div()
+    const el = DOMUtils.div({class: 'igv-zoom-slider'})
     this.zoomContainer.appendChild(el)
     this.slider = document.createElement('input')
     this.slider.type = 'range'
@@ -56,7 +56,7 @@ const ZoomWidget = function (browser, parent) {
     })
 
     // zoom in
-    this.zoomInButton = DOMUtils.div()
+    this.zoomInButton = DOMUtils.div({class: 'igv-zoom-in-button'})
     this.zoomContainer.appendChild(this.zoomInButton)
     this.zoomInButton.appendChild(createIcon('plus-circle'))
     this.zoomInButton.addEventListener('click', () => {
