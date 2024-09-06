@@ -11,3 +11,7 @@ igv.css.map
 /dev/oauth/oauthConfigPrivate.js
 /js/bigwig/bwReader_nochromtree.js
 /yarn.lock
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
