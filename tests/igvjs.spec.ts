@@ -22,7 +22,7 @@ test('has visible navbar', async ({ page }) => {
 });
 
 test('has no visible genome', async ({ page }) => {
-  await igv.navbar.left.genome.assertNotVisible();
+  await igv.navbar.left.current_genome.assertNotVisible();
 });
 
 test('has zoom level 23 with a range of 0..23', async ({ page }) => {
