@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 import { IGV_Container } from '../models/IGV_Container';
+import { DEFAULT_IGV_DIV_ID } from '../constants';
 
 let igv: IGV_Container;
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/tests/annotation/index.html');
-    igv = new IGV_Container(page, "#igv-div");
+    igv = new IGV_Container(page, DEFAULT_IGV_DIV_ID);
 });
 
 test('has correct page title', async ({ page }) => {

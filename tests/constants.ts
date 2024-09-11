@@ -1,0 +1,1 @@
+export const DEFAULT_IGV_DIV_ID = "#igv-div";
