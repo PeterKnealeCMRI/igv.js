@@ -4,13 +4,13 @@ import { IGV_Container } from '../models/IGV_Container';
 let igv: IGV_Container;
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('/dev/annotation/annotation.html');
-    igv = new IGV_Container(page, "#igvDiv");
+    await page.goto('/test/annotation.html');
+    igv = new IGV_Container(page, "#igv-div");
 });
 
 test('has correct page title', async ({ page }) => {
-    const title = await page.locator('h1').innerText();
-    expect(title).toBe('Annotation tracks');
+    const title = await page.title();
+    expect(title).toBe('Annotation');
 });
 
 test('has correct genome', async ({ page }) => {

@@ -26,11 +26,11 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build
+    - name: Build project
       run: npm run build
 
-    - name: run http-server
-      run: http-server &
+    - name: Server content
+      run: npx http-server &
 
     - name: Install Playwright Browsers
       run: npx playwright install chromium --with-deps
