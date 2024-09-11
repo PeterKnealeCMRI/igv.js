@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { IGV_Container } from './models/igv_container';
+import { IGV_Container } from './models/IGV_Container';
 
 let igv: IGV_Container;
 

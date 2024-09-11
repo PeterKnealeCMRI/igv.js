@@ -145,6 +145,25 @@ npx http-server
 Then open [http://localhost:8080/examples](http://localhost:8080/examples) in a web browser.
 
 
+## End to End tests
+
+- Install playwright and the chromium browser
+    ```shell
+    npx playwright install chromium --with-deps
+    ```
+- Run the http server 
+    ```shell
+    http-server
+    ```
+- Run the tests in various configurations
+    ```shell
+    npx playwright test # Runs the end-to-end tests.
+    npx playwright test --ui # Starts the interactive UI mode.
+    npx playwright test --project=chromium # Runs the tests only on Desktop Chrome.
+    npx playwright test example # Runs the tests in a specific file.
+    npx playwright test --debug # Runs the tests in debug mode.
+    npx playwright codegen # Auto generate tests with Codegen.
+    ```
 # Supported Browsers
 
 igv.js require a modern web browser with support for Javascript ECMAScript 2015 (ES6). 
