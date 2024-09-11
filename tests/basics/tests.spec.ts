@@ -1,15 +1,15 @@
 import { test, expect } from '@playwright/test';
-import { IGV_Container } from './models/IGV_Container';
+import { IGV_Container } from '../models/IGV_Container';
 
 let igv: IGV_Container;
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/dev/igvjs.html');
-  igv = new IGV_Container(page, "#myDiv");
+  await page.goto('/tests/basics/index');
+  igv = new IGV_Container(page, "#igv-div");
 });
 
 test('has correct page title', async ({ page }) => {
-  expect(await page.title()).toContain('IGV Examples');
+  expect(await page.title()).toBe('Basics');
 });
 
 test('has visible navbar', async ({ page }) => {
