@@ -9,7 +9,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install && npm install --global http-server",
+	"postCreateCommand": "npm install && npm install --global http-server && npx playwright install chromium --with-deps",
 	"portsAttributes": {
 		"8080": {
 			"label": "http-server"

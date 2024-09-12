@@ -5,12 +5,25 @@ import { DEFAULT_IGV_DIV_ID } from '../constants';
 let igv: IGV_Container;
 
 test.beforeEach(async ({ page }) => {
+    test.slow();
     await page.goto('/tests/annotation/index.html');
     igv = new IGV_Container(page, DEFAULT_IGV_DIV_ID);
 });
 
 test('has correct page title', async ({ page }) => {
     expect(await page.title()).toBe('Annotation');
+});
+
+test('has correct track labels', async ({ page }) => {
+    const tracks = [
+        "Bed - Tabix Index",
+        "Bed - No Index",
+        "Bed - Tribble Index",
+        "dbSNP 137 - Tabix index",
+        "Gencode v24 (gtf) -- genes filtered",
+        "Refseq Genes"
+    ];
+    await igv.assertTrackLabels(tracks);
 });
 
 test('has correct genome', async ({ page }) => {
@@ -24,7 +37,6 @@ test('has correct genomic location', async ({ page }) => {
     await igv.navbar.left.genomic_location.chromosome_select.assertSelectVisible();
     await igv.navbar.left.genomic_location.chromosome_select.assertSelectedOption("chr8");
 });
-
 
 test('has correct locus search text', async ({ page }) => {
     await igv.navbar.left.genomic_location.assertVisible();
