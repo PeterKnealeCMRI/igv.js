@@ -17,3 +17,5 @@ export class IGV_Navbar {
         await expect(this.container).toBeVisible();
     }
 }
+
+

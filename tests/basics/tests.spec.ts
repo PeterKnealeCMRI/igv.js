@@ -2,10 +2,11 @@ import { test, expect } from '@playwright/test';
 import { IGV_Container } from '../models/IGV_Container';
 import { DEFAULT_IGV_DIV_ID } from '../constants';
 
+
 let igv: IGV_Container;
 
 test.beforeEach(async ({ page }) => {
-    test.slow();
+    test.slow(); // mark all tests in this file as slow
     await page.goto('/tests/basics/index');
     igv = new IGV_Container(page, DEFAULT_IGV_DIV_ID);
 });
